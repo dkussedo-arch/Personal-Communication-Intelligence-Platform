@@ -1,4 +1,5 @@
 import { ChatInterface } from "@/components/ChatInterface";
+import { ClaimEvaluator } from "@/components/ClaimEvaluator";
 import { FileUpload } from "@/components/FileUpload";
 
 export default function Home() {
@@ -32,6 +33,17 @@ export default function Home() {
           </p>
         </div>
         <ChatInterface />
+      </section>
+
+      <section className="flex w-full flex-col items-center gap-4">
+        <div className="max-w-2xl space-y-1 text-center">
+          <h2 className="text-xl font-semibold">Verify AI Claims</h2>
+          <p className="text-sm text-muted-foreground">
+            Check whether AI-generated text is grounded in your source document,
+            claim by claim.
+          </p>
+        </div>
+        <ClaimEvaluator />
       </section>
     </main>
   );
