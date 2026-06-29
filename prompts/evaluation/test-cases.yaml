@@ -1,0 +1,17 @@
+- description: Typical good document
+  vars:
+    id: tc-001
+    input: "Q4 revenue was $2.3M, up 40% YoY. Key actions: hire 5 engineers by March."
+    expected:
+      summary_contains:
+        - revenue
+        - Q4
+        - 40%
+      action_items_min: 1
+
+- description: Document with no relevant content
+  vars:
+    id: tc-002
+    input: "This document does not mention any financial data."
+    expected:
+      should_flag_not_found: true

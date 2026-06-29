@@ -1,0 +1,25 @@
+# PCI document summary prompt evaluation
+# Run: npm run eval
+# View: npm run eval:view
+
+description: PCI summary prompt evaluation
+
+prompts:
+  - file://summary-eval-prompt.txt
+
+providers:
+  - id: anthropic:messages:claude-sonnet-4-6
+    label: claude-sonnet-4-6
+    config:
+      temperature: 0.2
+      max_tokens: 1024
+
+defaultTest:
+  assert:
+    - type: is-json
+    - type: javascript
+      value: file://assertions/summary.js
+
+tests: file://../../evals/test-cases.json
+
+outputPath: ../../.promptfoo/summary-results.json
